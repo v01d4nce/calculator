@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        #calcInput {
+            font-family: serif;
+            font-size: 24px;
+            padding: 10px;
+            width: 300px;
+            text-align: center;
+            border: 2px solid #000;
+            border-radius: 0;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 24px;
+            border: 1px solid #000;
+            padding: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="calcInput" placeholder="Enter calculation" oninput="calculate()" />
+        <p id="result"></p>
+    </div>
+    <script>
+        function calculate() {
+            const input = document.getElementById('calcInput').value;
+            try {
+                const result = eval(input);
+                document.getElementById('result').textContent = result;
+            } catch {
+                document.getElementById('result').textContent = 'Invalid input';
+            }
+        }
+    </script>
+</body>
+</html>
